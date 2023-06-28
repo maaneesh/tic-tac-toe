@@ -5,6 +5,7 @@
 body {
     background-color: cadetblue;
 
+
 }
 
 #gamescreen {
@@ -12,8 +13,9 @@ body {
     display: grid;
     margin: 0;
     padding: 0;
-    max-height: 900px;
-    max-width: 900px;
+
+    max-height: fit-content;
+    max-width: fit-content;
 
     background-color: chartreuse;
 
@@ -30,7 +32,7 @@ body {
     display: flex;
     height: 100px;
     width: 100px;
-    background-color: red;
-    padding: 10px;
-    margin: 10px;
+    background-color:whitesmoke;
+    padding: 5px 5px 10px 10 ;
+    margin: 5px 5px 10px 10px;
 }
