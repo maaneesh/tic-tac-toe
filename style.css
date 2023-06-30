@@ -1,38 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Ruda:wght@400;600;800&display=swap');
+
+
 *{
     box-sizing: border-box;
+    
+}
+:root {
+    --cell-size: 100px;
+    font-family: 'Roboto',sans-serif;
+    
 }
 
-body {
+html {
+   
     background-color: cadetblue;
+    width: 100vw;
+    height: 100vh;
+
+
+}
+body{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
 
 
 }
 
-#gamescreen {
 
+
+header{
+    color: brown;
+}
+.message-screen {
+    height: fit-content;
+}
+
+.game-board {
+
+   
     display: grid;
-    margin: 0;
-    padding: 0;
-
-    max-height: fit-content;
-    max-width: fit-content;
-
-    background-color: chartreuse;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto)
 
 }
-
-.game-rows {
-
+.moves {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
     display: flex;
-    flex-direction: row;
-  
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+  .moves.x::before,
+.moves.x::after,
+.board.x .moves:not(.x):not(.circle):hover::before,
+.board.x .moves:not(.x):not(.circle):hover::after {
+  content: '';
+  position: absolute;
+  width: calc(var(--mark-size) * .15);
+  height: var(--mark-size);
 }
 
-.game-moves {
-    display: flex;
-    height: 100px;
-    width: 100px;
-    background-color:whitesmoke;
-    padding: 5px 5px 10px 10 ;
-    margin: 5px 5px 10px 10px;
-}
+
+  .button {
+    display: block;
+    
+  }
