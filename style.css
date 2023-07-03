@@ -5,8 +5,18 @@
     box-sizing: border-box;
     
 }
+
+body{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+
+
+}
 :root {
     --cell-size: 100px;
+    --mark-size: calc(var(--cell-size)*.9);
     font-family: 'Roboto',sans-serif;
     
 }
@@ -17,17 +27,7 @@ html {
     width: 100vw;
     height: 100vh;
 
-
 }
-body{
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    text-align: center;
-
-
-}
-
 
 
 header{
@@ -45,10 +45,10 @@ header{
     align-content: center;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(3, auto)
+    grid-template-columns: repeat(3, auto);
 
 }
-.moves {
+.squares {
     width: var(--cell-size);
     height: var(--cell-size);
     border: 1px solid black;
@@ -56,20 +56,60 @@ header{
     justify-content: center;
     align-items: center;
     position: relative;
-    cursor: pointer;
+    cursor: pointer; 
   }
-  .moves.x::before,
-.moves.x::after,
-.board.x .moves:not(.x):not(.circle):hover::before,
-.board.x .moves:not(.x):not(.circle):hover::after {
-  content: '';
-  position: absolute;
-  width: calc(var(--mark-size) * .15);
-  height: var(--mark-size);
+
+
+
+.squares.x {
+
+    background-color: pink;
+}
+
+.squares.o {
+    background-color: teal;
+}
+
+.squares.x::before,
+.squares.x::after{
+
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size)*.15);
+    height: var(--mark-size);
+    background-color: black;
+
+
+}
+.squares.x::before {
+    transform: rotate(45deg);
+}
+
+.squares.x::after {
+    transform: rotate(-45deg);
 }
 
 
-  .button {
-    display: block;
-    
-  }
+
+.squares.o::before,
+.squares.o::after{
+    content: '';
+    background-color: black;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.squares.o::before{
+    width: var(--mark-size);
+    height: var(--mark-size);
+    background-color: black;
+
+}
+.squares.o::after{
+    width: calc(var(--mark-size)*.7);
+    height: calc(var(--mark-size)*.7);
+    background-color: aliceblue;
+
+
+}
+

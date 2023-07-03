@@ -1,14 +1,14 @@
 
 
 
-const player1 = "cross";
-const player2 = "circle";
+const player1 = "x";
+const player2 = "o";
 const Players = [player1,player2];
-const moves = document.querySelectorAll('.moves');
+const squares = document.querySelectorAll('.squares');
 let currentPlayer = player1;
 
 
-moves.forEach(move => {
+squares.forEach(move => {
 
     move.addEventListener("click", handleEvent,{once:true});
     
@@ -23,21 +23,21 @@ function switchTurn() {
 function handleEvent(e) {
 
 
-    const cell = e.target;
+    const square = e.target;
     if ( currentPlayer === player1){
         currentPlayer = player2;
     } else currentPlayer = player1
 
-    placeMark(cell,currentPlayer);
+    placeMark(square,currentPlayer);
     
     console.log(currentPlayer);
 
     
 }
 
-function placeMark(cell,currentPlayer){
-    cell.classList.add(currentPlayer)
-    console.log(cell.classList);
+function placeMark(square,currentPlayer){
+    square.classList.add(currentPlayer)
+    console.log(square.classList);
 
 }
 
