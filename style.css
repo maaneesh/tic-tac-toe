@@ -31,9 +31,9 @@ html {
 
 
 .game-title{
-    color: brown;
-    padding: 50px;
-    font-size: 1.5rem;
+    color: #dc143c;
+    padding: 15px;
+    font-size: 20px;
 }
 
 
@@ -116,8 +116,25 @@ footer {
     flex-direction: column;
 
 }
-footer.button {
-    padding: 20px 20px 20px 20px;
+button {
+    display:inline-flex;
+    align-self: center;
+    max-width: max-content;
+    padding: 20px 10px 20px 10px;
+    font-size: larger;
+
+}
+.message-screen{
+    color: #dc143c;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 2vh;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff;
+  
+    text-align: center;
 
 }
 

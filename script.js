@@ -32,8 +32,7 @@ restart.addEventListener("click",resetClassList);
 
 squares.forEach(move => {
 
-    move.addEventListener("click", handleEvent,{once:true});
-    
+    move.addEventListener("click", handleEvent,{once:true});  
     
 });
 
@@ -49,8 +48,7 @@ function handleEvent(e) {
     placeMark(square,currentPlayer);
 
     if (checkWin(currentPlayer)){
-        // console.log("Winner");
-        // console.log({currentPlayer});
+ 
         gameWinner = currentPlayer;
         endGame(false);
     }
