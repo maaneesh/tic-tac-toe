@@ -5,7 +5,28 @@ const player1 = "x";
 const player2 = "o";
 const Players = [player1,player2];
 const squares = document.querySelectorAll('.squares');
+const restart = document.getElementById('reset-button');
+const board = document.getElementById('squares');
+const winningMesssage = document.getElementById('text-message');
 let currentPlayer = player1;
+
+const WINNING_COMBINATIONS = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
+
+
+
+//reset button
+
+
+restart.addEventListener("click",resetClassList);
 
 
 squares.forEach(move => {
@@ -29,68 +50,68 @@ function handleEvent(e) {
     } else currentPlayer = player1
 
     placeMark(square,currentPlayer);
-    
-    console.log(currentPlayer);
 
-    
+    if (checkWin(currentPlayer)){
+        // console.log("Winner");
+        // console.log({currentPlayer});
+        endGame(false);
+    }
+    else if ( isDraw()){
+        winningMesssage.innerText=`It's a draw!`;
+
+    }
+ 
 }
+
+
 
 function placeMark(square,currentPlayer){
-    square.classList.add(currentPlayer)
-    console.log(square.classList);
+    square.classList.add(currentPlayer);
+   // console.log(board.classList);
 
 }
 
+function checkWin(currentPlayer){
+    return WINNING_COMBINATIONS.some( combination => {
+        return combination.every(index => {
+            return squares[index].classList.contains(currentPlayer);
+        })
 
+    })
+}
+function isDraw(){
+    return [...squares].every(move =>{
+        return move.classList.contains(player1) || 
+        move.classList.contains(player2);
+    })
+    endGame(true);
 
-/*
+}
 
-const gameArray = new Array();
-gameArray[0]= new Array(0,0,0);
-gameArray[1]= new Array(0,0,0);
-gameArray[2]= new Array(0,0,0);
+function endGame(draw){
 
-let diagSum=0;
-let rowSum=0;
-let colSum=0;
+    if (draw){
+        winningMesssage.innerText = `It's a Draw!`;
 
+    } else{
+        winningMesssage.innerText = `${currentPlayer} Wins!`;
 
-//test cases
-//diag
-
-    // gameArray[0][0]=-1;
-    // gameArray[1][1]=-1;
-    // gameArray[2][2]=-1;
-
-//cols
-    // gameArray[2][0]=-1;
-    // gameArray[2][1]=-1;
-    // gameArray[2][2]=-1;
-
-//rows
-    gameArray[0][2]=-1;
-    gameArray[1][2]=-1;
-    gameArray[2][2]=-1;
-
-
-for (let row=0; row <3; row++){
-    colSum=0;
-    
-    for(let col=0; col<3; col++){
-
-        if(row==col){
-            diagSum+= gameArray[row][col];
-        }
-        colSum+= gameArray[row][col];
-        rowSum+=gameArray[row][col];
     }
-   
+
 }
 
 
-console.log({gameArray});
-console.log({diagSum}, {rowSum}, {colSum});
+function resetClassList(){
 
-*/
+    squares.forEach(move => {
 
+        move.classList.remove(player1);
+        move.classList.remove(player2);
+            
+    });
+
+        console.log("reset");
+
+
+}
 
