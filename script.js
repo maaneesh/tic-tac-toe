@@ -1,14 +1,15 @@
 
 
 
-const player1 = "x";
-const player2 = "o";
+const player1 = "X";
+const player2 = "O";
 const Players = [player1,player2];
 const squares = document.querySelectorAll('.squares');
 const restart = document.getElementById('reset-button');
 const board = document.getElementById('squares');
 const winningMesssage = document.getElementById('text-message');
 let currentPlayer = player1;
+let gameWinner = "";
 
 const WINNING_COMBINATIONS = [
     [0, 1, 2],
@@ -36,10 +37,6 @@ squares.forEach(move => {
     
 });
 
-function switchTurn() {
-   
-
-}
 
 function handleEvent(e) {
 
@@ -54,6 +51,7 @@ function handleEvent(e) {
     if (checkWin(currentPlayer)){
         // console.log("Winner");
         // console.log({currentPlayer});
+        gameWinner = currentPlayer;
         endGame(false);
     }
     else if ( isDraw()){

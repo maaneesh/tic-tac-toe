@@ -38,8 +38,6 @@ html {
 
 
 .game-board {
-
-   
     display: grid;
     justify-content: center;
     align-content: center;
@@ -61,17 +59,17 @@ html {
 
 
 
-.squares.x {
+.squares.X {
 
     background-color: pink;
 }
 
-.squares.o {
+.squares.O {
     background-color: teal;
 }
 
-.squares.x::before,
-.squares.x::after{
+.squares.X::before,
+.squares.X::after{
 
     content: '';
     position: absolute;
@@ -81,31 +79,31 @@ html {
 
 
 }
-.squares.x::before {
+.squares.X::before {
     transform: rotate(45deg);
 }
 
-.squares.x::after {
+.squares.X::after {
     transform: rotate(-45deg);
 }
 
 
 
-.squares.o::before,
-.squares.o::after{
+.squares.O::before,
+.squares.O::after{
     content: '';
     background-color: black;
     position: absolute;
     border-radius: 50%;
 }
 
-.squares.o::before{
+.squares.O::before{
     width: var(--mark-size);
     height: var(--mark-size);
     background-color: black;
 
 }
-.squares.o::after{
+.squares.O::after{
     width: calc(var(--mark-size)*.7);
     height: calc(var(--mark-size)*.7);
     background-color: aliceblue;
