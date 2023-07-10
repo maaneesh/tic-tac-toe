@@ -38,8 +38,7 @@ squares.forEach(move => {
 
 
 function handleEvent(e) {
-
-
+    
     const square = e.target;
     if ( currentPlayer === player1){
         currentPlayer = player2;
@@ -48,7 +47,6 @@ function handleEvent(e) {
     placeMark(square,currentPlayer);
 
     if (checkWin(currentPlayer)){
- 
         gameWinner = currentPlayer;
         endGame(false);
     }
@@ -63,7 +61,6 @@ function handleEvent(e) {
 
 function placeMark(square,currentPlayer){
     square.classList.add(currentPlayer);
-   // console.log(board.classList);
 
 }
 
@@ -72,13 +69,11 @@ function checkWin(currentPlayer){
         return combination.every(index => {
             return squares[index].classList.contains(currentPlayer);
         })
-
     })
 }
 function isDraw(){
     return [...squares].every(move =>{
-        return move.classList.contains(player1) || 
-        move.classList.contains(player2);
+        return move.classList.contains(player1) ||  move.classList.contains(player2);
     })
     endGame(true);
 
@@ -91,7 +86,7 @@ function endGame(draw){
 
     } else{
         winningMesssage.innerText = `${currentPlayer} Wins!`;
-
+        resetClassList();
     }
 
 }
@@ -104,9 +99,7 @@ function resetClassList(){
         move.classList.remove(player1);
         move.classList.remove(player2);
             
-    });
-
-        console.log("reset");
+    });  
 
 
 }
