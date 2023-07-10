@@ -36,9 +36,15 @@ squares.forEach(move => {
     
 });
 
+// when a button is clicked handleEvent() function is called
+//which performs a series of actions: currentPlayer variable is set,
+// mark is set on the board based on currentPlayer, checks if currentPlayer
+// matches any of the winning conditions. 
+// If a game winning conditions doesn't match, the checkDraw() function is called
+
 
 function handleEvent(e) {
-    
+
     const square = e.target;
     if ( currentPlayer === player1){
         currentPlayer = player2;
@@ -78,6 +84,8 @@ function isDraw(){
     endGame(true);
 
 }
+//endGame updates the message div if a game has been won or show the game ends in draw based if all 
+//boxes in the board has been filled
 
 function endGame(draw){
 
